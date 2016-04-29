@@ -1,0 +1,2 @@
+#!/usr/bin/with-contenv sh
+exec aria2c --enable-rpc --rpc-listen-all --rpc-secret=$ARIA2_SECRET_TOKEN

@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv sh
+
+if [ -z "$ARIA2_SECRET_TOKEN" ]; then
+  echo "Missing secret token"
+  exec s6-svscanctl -t /var/run/s6/services
+fi
