@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+docker --version
+
+docker build -t evild/alpine-aria2:stable .
+docker inspect evild/alpine-aria2:stable
