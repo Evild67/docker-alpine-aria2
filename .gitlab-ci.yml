@@ -1,0 +1,54 @@
+stages:
+  - build
+  - test
+  - cleanup
+  - tweet
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - ci/aria2_build
+
+test_job:
+  stage: test
+  script:
+    - ci/aria2_test
+
+cleanup:
+  stage: cleanup
+  script:
+    - ci/aria2_cleanup
+  when: always
+
+tweet_succeed_job:
+  variables:
+    PASSED: "true"
+  stage: tweet
+  only:
+    - tags
+    - triggers
+    - master
+  script:
+    - ci/aria2_tweet
+
+tweet_failed_job:
+  variables:
+    PASSED: "false"
+  stage: tweet
+  only:
+    - tags
+    - triggers
+    - master
+  script:
+    - ci/aria2_tweet
+  when: on_failure
+
+deploy_job:
+  stage: deploy
+  only:
+    - tags
+    - triggers
+    - master
+  script:
+    - ci/aria2_deploy
