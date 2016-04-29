@@ -3,22 +3,30 @@ set -e
 
 ARIA2_DIR=${ARIA2_DIR:-"/usr/aria2/download"}
 ARIA2_RPC=${ARIA2_RPC:-true}
-ARIA2_DHT=${ARIA2_DHT:-false}
+ARIA2_DHT=${ARIA2_DHT:-true}
+ARIA2_ENABLE_PEER_EXCHANGE=${ARIA2_ENABLE_PEER_EXCHANGE:-true}
 ARIA2_RPC_PORT=${ARIA2_RPC_PORT:-6800}
 ARIA2_RPC_LISTEN_ALL=${ARIA2_RPC_LISTEN_ALL:-true}
 ARIA2_RPC_SECRET=${ARIA2_RPC_SECRET}
+ARIA2_SEED_RATIO=${ARIA2_SEED_RATIO:-0}
 ARIA2_SEED_TIME=${ARIA2_SEED_TIME:-0}
-ARIA2_MAX_CONNECTION_PER_SERVER=${ARIA2_MAX_CONNECTION_PER_SERVER:-8}
+ARIA2_MAX_CONCURRENT_DOWNLOADS=${ARIA2_MAX_CONCURRENT_DOWNLOADS:-10}
+ARIA2_MAX_CONNECTION_PER_SERVER=${ARIA2_MAX_CONNECTION_PER_SERVER:-1}
+ARIA2_MIN_SPLIT_SIZE=${ARIA2_MIN_SPLIT_SIZE:-5M}
+ARIA2_SPLIT=${ARIA2_SPLIT:-10}
 
 mkdir -p /etc/aria2
 
 echo dir=$ARIA2_DIR >> /etc/aria2/aria2.conf
 echo enable-rpc=$ARIA2_RPC >> /etc/aria2/aria2.conf
+echo enable-dht=$ARIA2_DHT >> /etc/aria2/aria2.conf
 echo rpc-listen-port=$ARIA2_RPC_PORT >> /etc/aria2/aria2.conf
 echo rpc-listen-all=$ARIA2_RPC_LISTEN_ALL >> /etc/aria2/aria2.conf
 echo rpc-secret=$ARIA2_RPC_SECRET >> /etc/aria2/aria2.conf
-echo enable-dht=$ARIA2_DHT >> /etc/aria2/aria2.conf
 echo seed-time=$ARIA2_SEED_TIME >> /etc/aria2/aria2.conf
+echo max-concurrent-downloads=$ARIA2_MAX_CONCURRENT_DOWNLOADS >> /etc/aria2/aria2.conf
 echo max-connection-per-server=$ARIA2_MAX_CONNECTION_PER_SERVER >> /etc/aria2/aria2.conf
+echo min-split-size=$ARIA2_MIN_SPLIT_SIZE >> /etc/aria2/aria2.conf
+echo split=$ARIA2_SPLIT >> /etc/aria2/aria2.conf
 
 mkdir -p $ARIA2_DIR
