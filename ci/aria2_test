@@ -1,3 +1,6 @@
 #!/bin/sh
 
 set -e
+
+docker run -d --name aria2-stable evild/alpine-aria2:stable
+docker ps | grep aria2-stable
