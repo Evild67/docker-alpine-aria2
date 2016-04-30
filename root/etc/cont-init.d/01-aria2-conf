@@ -68,7 +68,7 @@ echo bt-tracker-connect-timeout=$ARIA2_BT_TRACKER_CONNECT_TIMEOUT >> /etc/aria2/
 echo bt-tracker-interval=$ARIA2_BT_TRACKER_INTERVAL >> /etc/aria2/aria2.conf
 echo bt-tracker-timeout=$ARIA2_BT_TRACKER_TIMEOUT >> /etc/aria2/aria2.conf
 
-echo follow-torrent-ratio=$ARIA2_FOLLOW_TORRENT >> /etc/aria2/aria2.conf
+echo follow-torrent=$ARIA2_FOLLOW_TORRENT >> /etc/aria2/aria2.conf
 
 echo seed-ratio=$ARIA2_SEED_RATIO >> /etc/aria2/aria2.conf
 echo seed-time=$ARIA2_SEED_TIME >> /etc/aria2/aria2.conf
