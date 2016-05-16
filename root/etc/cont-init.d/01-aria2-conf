@@ -42,7 +42,7 @@ ARIA2_RPC_PORT=${ARIA2_RPC_PORT:-6800}
 ARIA2_RPC_LISTEN_ALL=${ARIA2_RPC_LISTEN_ALL:-true}
 ARIA2_RPC_SECRET=${ARIA2_RPC_SECRET}
 
-
+ARIA2_CHECK_CERTIFICATE=${ARIA2_CHECK_CERTIFICATE:-false}
 
 mkdir -p /etc/aria2
 
@@ -84,5 +84,7 @@ echo enable-rpc=$ARIA2_RPC >> /etc/aria2/aria2.conf
 echo rpc-listen-port=$ARIA2_RPC_PORT >> /etc/aria2/aria2.conf
 echo rpc-listen-all=$ARIA2_RPC_LISTEN_ALL >> /etc/aria2/aria2.conf
 echo rpc-secret=$ARIA2_RPC_SECRET >> /etc/aria2/aria2.conf
+
+echo check-certificate=$ARIA2_CHECK_CERTIFICATE >> /etc/aria2/aria2.conf
 
 mkdir -p $ARIA2_DIR
